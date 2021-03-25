@@ -20,11 +20,11 @@ public class DemoAppWebApplicationInitializer implements WebApplicationInitializ
 
         try {
             Context initCxt =  new InitialContext();
-            String activeProfile =  (String) initCxt.lookup("cell/nodes/DefaultNode01/persistent/CustomCoreActiveProfile");
+            String profile =  (String) initCxt.lookup("cell/nodes/DefaultNode01/persistent/Profile");
 
-            System.out.println("activeProfile = "+activeProfile);
+            System.out.println("profile = "+profile);
 
-            servletContext.setInitParameter("spring.profiles.active", activeProfile);
+            servletContext.setInitParameter("spring.profiles.active", profile);
         } catch (NamingException e) {
             e.printStackTrace();
         }
